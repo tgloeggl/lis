@@ -50,7 +50,7 @@ table.login tr th {
 	-moz-border-radius-topleft: 10px;
 	-moz-border-radius-topright: 10px;
 	padding: 3px;
-	background-color: #6666AA;
+	background-color: #666699;
 }
 
 table.login tr td {
@@ -84,20 +84,23 @@ body
 	font-family: sans-serif;
 }
 
-a:link
+a:link, a:active, a:visited
 {
 	color: #DDDDFF;
 	text-decoration: underline;
 }
 
-a:active
+a.p:link, a.p:active, a.p:visited
 {
-	color: #DDDDFF;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
-a:visited
-{
-	color: #DDDDFF;
-	text-decoration: underline;
+button, input {
+	border: 1px solid #DDDDFF;
+	background-color: #666699;
+	color: white;
+}
+
+button, input[type=submit]{
+	font-weight: bold;
 }

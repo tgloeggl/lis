@@ -53,6 +53,12 @@ class DefaultController extends LIS_Controller {
 		$this->redirect('default/login');
 	}
 
+	function newaccount_action() {
+    $factory = new Flexi_TemplateFactory($GLOBALS['BASE_PATH'] . DIRECTORY_SEPARATOR . 'templates');
+    $this->set_layout($factory->open('layouts/main')); 
+
+	}
+
 	function changelog_action() { }
 
 }

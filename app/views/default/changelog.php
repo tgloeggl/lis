@@ -15,7 +15,6 @@
 <ul>
 	<li class="ok">Framework</li>
 	<li class="ok">Datenstruktur (DB)</li>
-	<li class="pending">Anmeldeformular</li>
 	<li class="pending">Login</li>
 	<li class="pending">Planetenübersicht</li>
 	<li class="pending">Flottenübersicht</li>
@@ -30,6 +29,7 @@
 
 <em>Version 0.2</em>
 <ul>
+	<li class="pending">Anmeldeformular</li>
 	<li class="pending">Admin-Tools für Forschung, Module und Gebäude</li>
 	<li class="pending">Datenstruktur (DB)</li>
 	<li class="pending">Spielerübersicht</li>

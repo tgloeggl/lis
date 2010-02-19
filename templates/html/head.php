@@ -14,6 +14,7 @@
 
 		<script src="http://localhost/lis/public/assets/javascript/lib/prototype.js" type="text/javascript"></script>
 		<script src="http://localhost/lis/public/assets/javascript/src/scriptaculous.js" type="text/javascript"></script>
+		<script src="http://localhost/lis/public/assets/javascript/md5.js" type="text/javascript"></script>
 		<script src="http://localhost/lis/public/assets/javascript/application.js" type="text/javascript"></script>
 	</head>
 

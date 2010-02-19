@@ -23,7 +23,7 @@ class MessageBox {
 	public function &getInstance() {
 		static $message_box;
 
-		if ($message_box) {
+		if (!$message_box) {
 			$message_box = new MessageBox();
 		}
 
