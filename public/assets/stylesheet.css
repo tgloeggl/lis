@@ -1,0 +1,103 @@
+/* * * * * * * * * * * * * * * * * *
+ * * *       L A Y O U T       * * *
+ * * * * * * * * * * * * * * * * * */
+#awaiting {
+	background-image: url('http://localhost/lis/public/assets/images/portal/v3_bct.png');
+	width: 150px;
+	height: 90px;
+	text-align: center;
+}
+
+td.portal_top {
+	background-image: url('http://localhost/lis/public/assets/images/portal/v3_btt.png');
+}
+
+td.portal_left {
+	background-image: url('http://localhost/lis/public/assets/images/portal/v3_blt.png');
+	text-align: center;
+	width: 150px;
+}
+
+
+div.portal:hover {
+	background-image: url('http://localhost/lis/public/assets/images/portal/button.png');
+}
+
+div.portal {
+	text-align: center;
+	width: 120px;
+	height: 25px;
+	padding-top: 5px;
+	margin-left: 15px;
+}
+
+div.portal a {
+	text-decoration:none;
+	color:#FFFFFF;
+	font-size: 0.8em;
+}
+
+
+/* * * * * * * * * * * * * * * * * *
+ * * * *     L O G I N     * * * * *
+ * * * * * * * * * * * * * * * * * */
+table.login {
+	border-collapse: collapse;
+	border-bottom: 1px solid #DDDDFF;
+}
+
+table.login tr th {
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	padding: 3px;
+	background-color: #6666AA;
+}
+
+table.login tr td {
+	padding: 3px;
+	background-image: url('http://localhost/lis/public/assets/images/portal/background_transparent.png');
+}
+
+/* * * * * * * * * * * * * * * * * *
+ *   M I S C E L L A N E O U S   * *
+ * * * * * * * * * * * * * * * * * */
+a img {
+	border: none;
+}
+
+li.ok {
+	padding-left: 20px;
+	background-image: url('http://localhost/lis/public/assets/images/icons/ok.png');
+	background-repeat: no-repeat;
+	color: #66FF66;
+}
+
+li.pending {
+	color: #883333;
+}
+
+body
+{
+	background-image: url('http://localhost/lis/public/assets/images/cradle3.jpg');
+	background-attachment : fixed;
+	color : #FFFFFF;
+	font-family: sans-serif;
+}
+
+a:link
+{
+	color: #DDDDFF;
+	text-decoration: underline;
+}
+
+a:active
+{
+	color: #DDDDFF;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: #DDDDFF;
+	text-decoration: underline;
+}

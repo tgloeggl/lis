@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * config.php - basic configuration
+ *
+ * GPL
+ */
+
+$BASE_PATH = realpath( dirname(__FILE__) . DIRECTORY_SEPARATOR . '..');
+
+$include_path = $BASE_PATH;
+$include_path .= PATH_SEPARATOR . $BASE_PATH . DIRECTORY_SEPARATOR . 'config';
+$include_path .= PATH_SEPARATOR . get_include_path();
+set_include_path($include_path);
+
+function __autoload($classname) {
+	$class = Config::get('trails_path') . DIRECTORY_SEPARATOR . 'models'. DIRECTORY_SEPARATOR . strtolower($classname) .'.php';
+	require_once($class);
+}
+
+// require always necessary files
+require_once('app/models/config.php');
+require_once 'vendor/trails/lib/trails.php';
+require_once('vendor/flexi/lib/flexi.php');
+
+Config::set('trails_path', 'app');
+Config::set('version', '0.0.1');
+Config::set('web_path', '/lis/public');
+
+$manager = DBManager::getInstance();
+$manager->setConnection('lis', 'mysql:host=localhost;dbname=lis', 'root', 'password');
+
+session_save_path($BASE_PATH . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'session');
+session_start();
