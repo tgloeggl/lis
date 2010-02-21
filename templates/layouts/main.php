@@ -45,13 +45,19 @@ echo $factory->render('html/head');
 			<?= $content_for_layout ?>
 		</td>
 	</tr>
-	<? foreach ($menu as $i => $entry) : ?>
+	<? foreach ((array)$menu as $i => $entry) : ?>
 	<tr height="40">
 		<td class="portal_left">
 			<div class="portal">
-				<a href="javascript:loadPage('<?=$entry['page']?>', '', '<?=$entry['params']?>')">
+			<? if ($entry['nojs']) : ?>
+				<a href="http://localhost/lis/public/index.php/<?=$entry['page']?>/<?= $entry['action'] ?>?<?=$entry['params']?>">
 					<b><?=$entry['name']?></b>
 				</a>
+			<? else : ?>
+				<a href="javascript:loadPage('<?=$entry['page']?>', '<?= $entry['action'] ?>', '<?=$entry['params']?>')">
+					<b><?=$entry['name']?></b>
+				</a>
+			<? endif; ?>
 			</div>
 		</td>
 	</tr>

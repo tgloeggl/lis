@@ -17,7 +17,7 @@ class MessageBox {
 	}
 
 	public function addMessage($type, $message) {
-		$this->messages[] = array($type => $message);
+		$this->messages[] = array('type' => $type, 'message' => $message);
 	}
 
 	public function &getInstance() {
@@ -33,6 +33,8 @@ class MessageBox {
 	static function error($message) {
 		$message_box = MessageBox::getInstance();
 		$message_box->addMessage('error', $message);
+
+		return $message_box;
 	}
 
 	static function success($message) {

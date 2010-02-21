@@ -9,5 +9,5 @@ function updateStats() {
 }
 
 function login() {
-	window.location = dispatch_path + '/default/dologin/' + $('username').value + '/' + MD5($('password').value);
+	window.location = dispatch_path + '/default/login/' + $('username').value + '/' + MD5($('password').value);
 }

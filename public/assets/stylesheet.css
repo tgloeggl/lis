@@ -58,6 +58,18 @@ table.login tr td {
 	background-image: url('http://localhost/lis/public/assets/images/portal/background_transparent.png');
 }
 
+
+/* * * * * * * * * * * * * * * * * *
+ * * * *   M E S S A G E S   * * * *
+ * * * * * * * * * * * * * * * * * */
+div.error {
+	border: 1px solid red;
+	background-color: #990000;
+	text-align: center;
+	padding: 2px;
+	font-weight: bold;
+}
+
 /* * * * * * * * * * * * * * * * * *
  *   M I S C E L L A N E O U S   * *
  * * * * * * * * * * * * * * * * * */
@@ -82,6 +94,7 @@ body
 	background-attachment : fixed;
 	color : #FFFFFF;
 	font-family: sans-serif;
+	font-size: 14pt;
 }
 
 a:link, a:active, a:visited
@@ -103,4 +116,48 @@ button, input {
 
 button, input[type=submit]{
 	font-weight: bold;
+}
+
+
+/* * * * * * * * * * * * * * * * * *
+ * * * *   P L A N E T S   * * * * *
+ * * * * * * * * * * * * * * * * * */
+
+div.planet_overview {
+	border: 1px solid #DDDDFF;
+	padding: 10px;
+	float: left;
+	width: 420px;
+	margin-right: 10px;
+	-moz-border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+div.planet_overview:hover {
+	background-color: #666699;
+	cursor: pointer;
+}
+
+h1 {
+	clear: both;
+	border-bottom: 1px solid white;
+	font-size: 14pt;
+	padding: 0px;
+}
+
+div.building_resources {
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+div.building_resources table {
+	font-size: 10pt;
+	padding: 2px;
+	width: 100%;
+}
+
+div.building_resources table td {
+	text-align: center;
+	border-bottom: 1px solid gray;
 }

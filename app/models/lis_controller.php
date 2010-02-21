@@ -8,7 +8,7 @@
 
 class LIS_Controller extends Trails_Controller {
 	function before_filter($action, $args) {
-		// show login-screen if user is not logged in
+		$this->flash = Trails_Flash::instance();
 	}
 
 }

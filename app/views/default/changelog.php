@@ -15,7 +15,7 @@
 <ul>
 	<li class="ok">Framework</li>
 	<li class="ok">Datenstruktur (DB)</li>
-	<li class="pending">Login</li>
+	<li class="ok">Login</li>
 	<li class="pending">Planetenübersicht</li>
 	<li class="pending">Flottenübersicht</li>
 	<li class="pending">Schiffe bauen</li>

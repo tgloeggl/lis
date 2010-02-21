@@ -1,0 +1,12 @@
+tödlich     deadly
+gefährlich  hazardous
+unwirtlich  barren
+angenehm    pleasing
+
+sun         Sonne
+torrid      brennend heiß
+hot         heiß
+normal      Normal
+cold        kalt
+freezing    eiskalt / sehr kalt
+absolute zero  Absoluter Nullpunkt

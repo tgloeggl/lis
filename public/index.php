@@ -8,12 +8,17 @@
 // header
 header('Content-Type: text/html; charset=iso-8859-1');
 
+if (Login::ok()) {
+	DBManager::get()->query("UPDATE lis_user SET lifesign = UNIX_TIMESTAMP(NOW())
+		WHERE username = '". Login::getUsername() ."'");
+}
+
 // set PHP_SELF correctly
 $PHP_SELF = $_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
 
 // define root and trails uri
 $trails_root = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . Config::get('trails_path');
-$trails_uri = Config::get('web_path') . '/index.php';
+$trails_uri = '/'. Config::get('web_path') . '/index.php';
 
 // dispatch
 $request_uri = 
