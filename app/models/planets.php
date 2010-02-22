@@ -185,4 +185,15 @@ class Planets {
 			SET active = ". (($activate) ? '1' : '0') ."
 			WHERE planet_id = $planet_id AND building_id = $building_id");
 	}
+
+	static function getStorage($planet_id) {
+		$storage = DBManager::get()->query("SELECT SUM(b.mod_storage * pb.level) FROM lis_planets_buildings pb
+			LEFT JOIN lis_buildings b USING (building_id)
+			WHERE planet_id = $planet_id AND pb.active = 1")->fetchColumn();
+
+		// every planet has a basic storage capacity of 5000 units
+		$storage += 5000;
+
+		return array('carboxin' => $storage, 'detrogen' => $storage, 'radium' => $storage, 'credits' => $storage * 10);
+	}
 }

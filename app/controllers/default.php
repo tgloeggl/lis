@@ -22,9 +22,9 @@ class DefaultController extends LIS_Controller {
 			$menu[] = array( 'name' => 'Spieler (0.2)',    'page' => 'ranking');
 			$menu[] = array( 'name' => 'Logout (0.1)',     'page' => 'default', 'action' => 'logout', 'nojs' => true);
 
-			$icons[] = array( 'name' => 'Profil (0.2)', 'page' => 'options', 'target' => 'main', 'image' => 'icons/profile.png');
-			$icons[] = array( 'name' => 'Hilfe (0.5)', 'page' => 'help', 'target' => 'main', 'image' => 'icons/help.png');
-			$icons[] = array( 'name' => 'Nachrichten (0.2)', 'page' => 'messaging', 'params' => '?cat=sys', 'target' => 'main', 'image' => 'icons/mail.png');
+			$icons[] = array( 'name' => 'Profil (0.2)', 'page' => 'options', 'target' => 'main', 'image' => 'icons/profile');
+			$icons[] = array( 'name' => 'Hilfe (0.5)', 'page' => 'help', 'target' => 'main', 'image' => 'icons/help');
+			$icons[] = array( 'name' => 'Nachrichten (0.2)', 'page' => 'messaging', 'params' => '?cat=sys', 'target' => 'main', 'image' => 'icons/mail');
 
 			$this->menu = $menu;
 			$this->icons = $icons;

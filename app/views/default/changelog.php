@@ -22,6 +22,7 @@
 	<li class="ok">Planetenübersicht</li>
 	<ul>
 		<li class="pending">Gebäude deaktivieren</li>
+		<li class="pending">Planetenabhängige Erträge</li>
 	</ul>
 	<li class="pending">Flottenübersicht</li>
 	<li class="pending">Schiffe bauen</li>
@@ -29,7 +30,7 @@
 	<li class="pending">Kämpfe</li>
 	<li class="pending">Forschung</li>
 	<li class="pending">Karte</li>
-	<li class="pending">Logout</li>
+	<li class="ok">Logout</li>
 	<li class="ok">Ticker (CRON-Job)</li>
 </ul>
 

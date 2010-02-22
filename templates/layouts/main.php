@@ -24,17 +24,17 @@ echo $factory->render('html/head');
 <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
 	<tr>
 		<td id="awaiting"></td>
-		<td id="stats" class="portal_top" valign="top" background="images/portal/v3_btt.png">
+		<td id="stats" class="portal_top" valign="top" background="<?= Assets::imgurl('portal/v3_btt') ?>">
 		</td>
 		<td class="portal_top" valign="top">
 			<span id="messages"><span>
 		</td>
 		<td class="portal_top" style="text-align: right; width: 320px;">
-			<img src="http://localhost/lis/public/assets/images/lost_in_space.gif" onClick="window.location='http://lost.inspace.de'" style="cursor: pointer">
+			<img src="<?= Config::get('web_path') ?>/assets/images/lost_in_space.gif" onClick="window.location='http://lost.inspace.de'" style="cursor: pointer">
 		</td>
 	</tr>
 	<tr>
-		<td class="portal_left" background="images/portal/v3_blt.png" height="10" valign="top" align="center" width="150"></td>
+		<td class="portal_left" background="<?= Assets::imgurl('portal/v3_blt') ?>" height="10" valign="top" align="center" width="150"></td>
 		<td align="left" id="main" rowspan="20" colspan="3" height="100%" valign="top" style="{padding:20px; border: 1px solid #C6C6EE}">
 			<?= $content_for_layout ?>
 		</td>
@@ -44,7 +44,7 @@ echo $factory->render('html/head');
 		<td class="portal_left">
 			<div class="portal">
 			<? if ($entry['nojs']) : ?>
-				<a href="http://localhost/lis/public/index.php/<?=$entry['page']?>/<?= $entry['action'] ?>?<?=$entry['params']?>">
+				<a href="<?= Config::get('web_path') ?>/index.php/<?=$entry['page']?>/<?= $entry['action'] ?>?<?=$entry['params']?>">
 					<b><?=$entry['name']?></b>
 				</a>
 			<? else : ?>
@@ -66,7 +66,7 @@ echo $factory->render('html/head');
 					?>
 					<td id="i<?=$i?>" align="center" height="30" width="30">
 						<a href="javascript:loadPage('<?=$icon['page']?>.php<?=$icon['params']?>')">
-							<img src="http://localhost/lis/public/assets/images/<?=$icon['image']?>" title="<?= $icon['name'] ?>">
+							<img src="<?= Assets::imgurl($icon['image']) ?>" title="<?= $icon['name'] ?>">
 						</a>
 					</td>
 					<td>&nbsp;</td>

@@ -18,11 +18,13 @@
 	<div style="float: right; color: #00CC00; font-weight: bold;">
 		im Bau bis <?= date('d.m, H:i', $in_progress[$building['building_id']]['end'] + 60) ?>
 	</div>
-	<? endif; ?>
-	
-	<? if (!$building['active']) : ?>
+	<? elseif (!$building['active']) : ?>
 	<div style="float: right; color: #FF0000; font-weight: bold;">
 		Gebäude sind deaktiviert!
+	</div>
+	<? else: ?>
+	<div style="float: right; color: #5555FF; font-weight: bold;">
+		Bauzeit: <?= ceil($building['completion'] / 60) ?> min
 	</div>
 	<? endif ?>
 	

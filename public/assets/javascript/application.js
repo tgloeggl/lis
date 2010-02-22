@@ -1,4 +1,4 @@
-var dispatch_path = 'http://localhost/lis/public/index.php';
+var dispatch_path = 'http://rona.virtuos.uos.de/lis/index.php';
 
 function loadPage(controller, action, params) {
 	new Ajax.Updater('main', dispatch_path + '/' + controller + '/' + action + '?' + params);

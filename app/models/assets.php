@@ -20,6 +20,6 @@ class Assets {
 	}
 
 	static function imgUrl($name) {
-		return 'http://' . $_SERVER['HTTP_HOST'] .'/'. Config::get('web_path') . '/assets/images/'. $name .'.png';
+		return Config::get('web_path') . '/assets/images/'. $name .'.png';
 	}
 }

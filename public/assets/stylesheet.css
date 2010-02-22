@@ -2,19 +2,19 @@
  * * *       L A Y O U T       * * *
  * * * * * * * * * * * * * * * * * */
 #awaiting {
-	background-image: url('http://localhost/lis/public/assets/images/portal/v3_bct.png');
+	background-image: url('images/portal/v3_bct.png');
 	width: 150px;
 	height: 90px;
 	text-align: center;
 }
 
 td.portal_top {
-	background-image: url('http://localhost/lis/public/assets/images/portal/v3_btt.png');
+	background-image: url('images/portal/v3_btt.png');
 	padding-top: 15px;
 }
 
 td.portal_left {
-	background-image: url('http://localhost/lis/public/assets/images/portal/v3_blt.png');
+	background-image: url('images/portal/v3_blt.png');
 	text-align: center;
 	width: 150px;
 	font-size: 14pt;
@@ -22,7 +22,7 @@ td.portal_left {
 
 
 div.portal:hover {
-	background-image: url('http://localhost/lis/public/assets/images/portal/button.png');
+	background-image: url('images/portal/button.png');
 }
 
 div.portal {
@@ -57,7 +57,7 @@ table.login tr th {
 
 table.login tr td {
 	padding: 3px;
-	background-image: url('http://localhost/lis/public/assets/images/portal/background_transparent.png');
+	background-image: url('images/portal/background_transparent.png');
 }
 
 
@@ -71,6 +71,7 @@ div.error {
 	padding: 2px;
 	font-weight: bold;
 	margin-top: 5px;
+	width: 100%;
 }
 
 div.success {
@@ -80,12 +81,13 @@ div.success {
 	padding: 2px;
 	font-weight: bold;
 	margin-top: 5px;
+	width: 100%;
 }
 
 div.messages {
 	position: fixed;
 	bottom: 5px;
-	width: 500px;
+	width: 50%;
 	left: 50%;
 	margin-left: -25%;
 }
@@ -112,7 +114,7 @@ a img {
 
 li.ok {
 	padding-left: 20px;
-	background-image: url('http://localhost/lis/public/assets/images/icons/ok.png');
+	background-image: url('images/icons/ok.png');
 	background-repeat: no-repeat;
 	color: #66FF66;
 }
@@ -123,7 +125,7 @@ li.pending {
 
 body
 {
-	background-image: url('http://localhost/lis/public/assets/images/cradle3.jpg');
+	background-image: url('images/cradle3.jpg');
 	background-attachment : fixed;
 	color : #FFFFFF;
 	font-family: sans-serif;
@@ -164,7 +166,7 @@ div.planet_overview {
 	border: 1px solid #DDDDFF;
 	padding: 10px;
 	float: left;
-	width: 360px;
+	width: 340pt;
 	margin-right: 10px;
 	-moz-border-radius: 10px;
 	margin-bottom: 10px;
