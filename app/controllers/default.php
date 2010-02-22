@@ -31,8 +31,8 @@ class DefaultController extends LIS_Controller {
 
 		}
 
- 	  $factory = new Flexi_TemplateFactory($GLOBALS['BASE_PATH'] . DIRECTORY_SEPARATOR . 'templates');
-    $this->set_layout($factory->open('layouts/main')); 
+		$factory = new Flexi_TemplateFactory($GLOBALS['BASE_PATH'] . DIRECTORY_SEPARATOR . 'templates');
+		$this->set_layout($factory->open('layouts/main')); 
 
 		$this->stat = Functions::getStats();
 	}
@@ -60,5 +60,9 @@ class DefaultController extends LIS_Controller {
 	}
 
 	function changelog_action() { }
+	
+	function stats_action() { 
+		$this->stat = Functions::getStats();
+	}
 
 }

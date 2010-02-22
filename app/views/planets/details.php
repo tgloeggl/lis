@@ -1,17 +1,31 @@
 <?= $this->render_partial('planets/index.php', array('planets' => array($planet))) ?>
+<?= $this->render_partial('_messages.php'); ?>
 <h1>Gebäude</h1>
 
 <? foreach ($buildings as $building) : ?>
-<div class="planet_overview">
+<? if (!$building['level']) $building['active'] = 1; ?>
+<div class="planet_overview <?= !$building['active'] ? 'deactivated' : '' ?>" onClick="build('<?= $planet['planet_id'] ?>', '<?= $building['building_id'] ?>')">
 	<div style="float: left;">
 		<b><?= $building['name'] ?></b><br>
 		<!--<?= $building['description'] ?>-->
 	</div>
-
 	
 	<div style="float: right; margin-left: 10px;">
-		Stufe <?= $building['level'] ?>
+		<?= $building['level'] ? 'Anzahl: '. $building['level'] : '<span style="color: #AA0000">nicht vorhanden</span>' ?>
 	</div>
+		
+	<? if ($in_progress[$building['building_id']]) : ?>
+	<div style="float: right; color: #00CC00; font-weight: bold;">
+		im Bau bis <?= date('d.m, H:i', $in_progress[$building['building_id']]['end'] + 60) ?>
+	</div>
+	<? endif; ?>
+	
+	<? if (!$building['active']) : ?>
+	<div style="float: right; color: #FF0000; font-weight: bold;">
+		Gebäude sind deaktiviert!
+	</div>
+	<? endif ?>
+	
 	<div class="building_resources">
 		<table cellspacing="0" border="0">
 			<tr>
@@ -36,6 +50,13 @@
 			</tr>
 		</table>
 	</div>
-
+	
+	<div style="float: right; clear: both">
+		<? if (!$building['active']) : ?>
+		Klicken um Gebäude zu aktivieren
+		<? else : ?>
+		Klicken um Auszubauen
+		<? endif ?>
+	</div>
 </div>
 <? endforeach; ?>

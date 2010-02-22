@@ -26,6 +26,7 @@ require_once('vendor/flexi/lib/flexi.php');
 Config::set('trails_path', 'app');
 Config::set('version', '0.0.1');
 Config::set('web_path', '/lis/public');
+Config::set('resources', array('energy', 'carboxin', 'detrogen', 'radium', 'credits'));
 
 $manager = DBManager::getInstance();
 $manager->setConnection('lis', 'mysql:host=localhost;dbname=lis', 'root', 'password');

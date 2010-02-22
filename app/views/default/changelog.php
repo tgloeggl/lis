@@ -6,6 +6,9 @@
 	<li>Flexi-Templates eingebaut</li>
 	<li>Layout übertragen</li>
 	<li>Datenstruktur (DB) für Version 0.1 erstellt</li>
+	<li>Ticker erstellt</li>
+	<li>Planetenübersicht</li>
+	<li>Planetendetails</li>
 </ul>
 
 
@@ -16,7 +19,10 @@
 	<li class="ok">Framework</li>
 	<li class="ok">Datenstruktur (DB)</li>
 	<li class="ok">Login</li>
-	<li class="pending">Planetenübersicht</li>
+	<li class="ok">Planetenübersicht</li>
+	<ul>
+		<li class="pending">Gebäude deaktivieren</li>
+	</ul>
 	<li class="pending">Flottenübersicht</li>
 	<li class="pending">Schiffe bauen</li>
 	<li class="pending">Schiffe verlegen</li>
@@ -24,7 +30,7 @@
 	<li class="pending">Forschung</li>
 	<li class="pending">Karte</li>
 	<li class="pending">Logout</li>
-	<li class="pending">Ticker (CRON-Job)</li>
+	<li class="ok">Ticker (CRON-Job)</li>
 </ul>
 
 <em>Version 0.2</em>

@@ -10,12 +10,14 @@
 
 td.portal_top {
 	background-image: url('http://localhost/lis/public/assets/images/portal/v3_btt.png');
+	padding-top: 15px;
 }
 
 td.portal_left {
 	background-image: url('http://localhost/lis/public/assets/images/portal/v3_blt.png');
 	text-align: center;
 	width: 150px;
+	font-size: 14pt;
 }
 
 
@@ -68,6 +70,37 @@ div.error {
 	text-align: center;
 	padding: 2px;
 	font-weight: bold;
+	margin-top: 5px;
+}
+
+div.success {
+	border: 1px solid green;
+	background-color: #009900;
+	text-align: center;
+	padding: 2px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+div.messages {
+	position: fixed;
+	bottom: 5px;
+	width: 500px;
+	left: 50%;
+	margin-left: -25%;
+}
+
+div.close_message {
+	position: absolute;
+	right: 5px;
+	top: 1px;
+	border: 1px solid white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div.close_message:hover {
+	background-color: #AAAAAA;
 }
 
 /* * * * * * * * * * * * * * * * * *
@@ -94,7 +127,11 @@ body
 	background-attachment : fixed;
 	color : #FFFFFF;
 	font-family: sans-serif;
-	font-size: 14pt;
+	font-size: 12pt;
+}
+
+#main, table {
+	font-size: 10pt;
 }
 
 a:link, a:active, a:visited
@@ -127,21 +164,25 @@ div.planet_overview {
 	border: 1px solid #DDDDFF;
 	padding: 10px;
 	float: left;
-	width: 420px;
+	width: 360px;
 	margin-right: 10px;
 	-moz-border-radius: 10px;
 	margin-bottom: 10px;
 }
 
 div.planet_overview:hover {
-	background-color: #666699;
+	background-color: #000033;
 	cursor: pointer;
+}
+
+.deactivated {
+	background-color: #440000;
 }
 
 h1 {
 	clear: both;
 	border-bottom: 1px solid white;
-	font-size: 14pt;
+	font-size: 1.2em;
 	padding: 0px;
 }
 

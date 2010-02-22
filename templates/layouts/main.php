@@ -24,15 +24,9 @@ echo $factory->render('html/head');
 <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
 	<tr>
 		<td id="awaiting"></td>
-		<td class="portal_top" background="images/portal/v3_btt.png">
-			<!--<div style="border: 1px solid #222288; background-color: #333399;">-->
-				<?=$stat['players']?> angemeldete Spieler<br/>
-				<span id="players_online"><?=$stat['online']?></span> Spieler <a href="javascript:loadPage('ranking', '', '')">online</A><br/>
-				<?=$stat['planets']?> Planeten im Univesum<br/>
-				Version <?=$stat['version']?>, <a href="javascript:loadPage('default', 'changelog', '')">Changelog / Roadmap</a><br/>
-			<!--</div>-->
+		<td id="stats" class="portal_top" valign="top" background="images/portal/v3_btt.png">
 		</td>
-		<td class="portal_top" style="padding-top: 15px">
+		<td class="portal_top" valign="top">
 			<span id="messages"><span>
 		</td>
 		<td class="portal_top" style="text-align: right; width: 320px;">

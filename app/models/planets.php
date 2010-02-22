@@ -106,8 +106,83 @@ class Planets {
 	}
 
 	static function getBuildings($planet_id) {
-		return DBManager::get()->query("SELECT * FROM lis_planets_buildings
-			LEFT JOIN lis_buildings USING (building_id)
-			WHERE planet_id = $planet_id")->fetchAll(PDO::FETCH_ASSOC);
+		return DBManager::get()->query("SELECT lb.*, lpb.planet_id, lpb.level, lpb.active FROM lis_buildings lb
+			LEFT JOIN lis_planets_buildings lpb ON (lb.building_id = lpb.building_id AND lpb.planet_id = $planet_id)
+			LEFT JOIN lis_research lr USING (research_id)
+			WHERE research_id = 0 OR lr.name IS NOT NULL
+			ORDER BY position ASC")->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
+	static function getEnergy($planet_id) {
+		// every planet generates 200 MWh on its own
+		return DBManager::get()->query("SELECT SUM(lbp.level * lb.mod_energy) FROM lis_planets_buildings lbp
+			LEFT JOIN lis_buildings lb USING (building_id)
+			WHERE active = 1 AND planet_id = $planet_id")->fetchColumn() + 200;
+	}
+	
+	static function build($planet_id, $building_id, &$messages) {
+		$planet   = DBManager::get()->query("SELECT * FROM lis_planets WHERE planet_id = $planet_id")->fetch();
+		$building = DBManager::get()->query("SELECT * FROM lis_buildings WHERE building_id = $building_id")->fetch();
+		
+		// check, if building is already beeing built on this planet
+		if (Functions::checkEvent('build', $planet_id, $building_id)) {
+			$messages = MessageBox::error('Es wird bereits ein Gebäude dieses Typs errichtet!');
+			return false;
+		}
+		
+		// check, if the maximum buildable level has been reached
+		$current_level = DBManager::get()->query("SELECT level FROM lis_planets_buildings 
+			WHERE planet_id = $planet_id AND building_id = $building_id")->fetchColumn();
+			
+		if ($current_level >= $building['max_level']) {
+			$messages = MessageBox::error('Sie können kein weiteres Gebäude dieser Art errichten!');
+			return false;
+		}
+		
+		foreach (Config::get('resources') as $res) {
+			if ($res != 'energy') {
+				if ($building[$res] > $planet[$res]) {
+					$messages = MessageBox::error('Nicht genügend Ressourcen, um dieses Gebäude zu errichten!');
+					return false;
+				}
+				$new_resources[] = $res .' = ' . ($planet[$res] - $building[$res]);
+			}
+		}
+		
+		// insert event to be ticked		
+		Functions::insertEvent('build', $planet_id, $building_id, $building['completion']);
+		
+		// remove resources from planet
+		DBManager::get()->query("UPDATE lis_planets SET ". implode(', ', $new_resources)
+			. " WHERE planet_id = $planet_id");
+
+		$messages = MessageBox::success('Gebäude wird errichtet!');
+		
+		return true;
+	}
+	
+	static function deactivateBuildingsByUsage($usage, $planet_id) {
+		DBManager::get()->query("UPDATE lis_planets_buildings lp
+			LEFT JOIN lis_buildings b USING (building_id)
+			SET active = 0
+			WHERE b.mod_$usage < 0 AND lp.planet_id = $planet_id");
+	}
+	
+	static function activated($planet_id, $building_id) {
+		$db = DBManager::get()->query("SELECT active FROM lis_planets_buildings
+			WHERE building_id = $building_id AND planet_id = $planet_id");
+		
+		// if there exists no entry for this planet and building, building cannot be deactivated
+		if (!$data = $db->fetch()) {
+			return true;
+		}
+		
+		return $data['active'] ? true : false;
+	}
+	
+	static function setActivation($activate, $planet_id, $building_id) {		
+		DBManager::get()->query("UPDATE lis_planets_buildings
+			SET active = ". (($activate) ? '1' : '0') ."
+			WHERE planet_id = $planet_id AND building_id = $building_id");
 	}
 }

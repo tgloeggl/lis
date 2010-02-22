@@ -18,7 +18,7 @@ $PHP_SELF = $_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
 
 // define root and trails uri
 $trails_root = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . Config::get('trails_path');
-$trails_uri = '/'. Config::get('web_path') . '/index.php';
+$trails_uri = 'http://localhost'. Config::get('web_path') . '/index.php';
 
 // dispatch
 $request_uri = 
