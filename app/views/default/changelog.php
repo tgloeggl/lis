@@ -25,11 +25,18 @@
 		<li class="pending">Planetenabhängige Erträge</li>
 	</ul>
 	<li class="pending">Flottenübersicht</li>
-	<li class="pending">Schiffe bauen</li>
-	<li class="pending">Schiffe verlegen</li>
+	<ul>
+		<li class="pending">Schiffe bauen</li>
+		<li class="pending">Schiffe designen</li>
+	</ul>
 	<li class="pending">Kämpfe</li>
 	<li class="pending">Forschung</li>
 	<li class="pending">Karte</li>
+	<ul>
+		<li class="pending">Schiffe verlegen</li>
+		<li class="pending">Planeten / Schiffe -&gt; Dialog</li>
+		<li class="pending">Schiffe enroute anzeigen</li>
+	</ul>
 	<li class="ok">Logout</li>
 	<li class="ok">Ticker (CRON-Job)</li>
 </ul>

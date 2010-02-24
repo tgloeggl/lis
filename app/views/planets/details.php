@@ -1,10 +1,13 @@
-<?= $this->render_partial('planets/index.php', array('planets' => array($planet))) ?>
+<?= $this->render_partial('planets/index.php', array('planets' => array($planet), 'return' => true)) ?>
 <?= $this->render_partial('_messages.php'); ?>
 <h1>Gebäude</h1>
 
 <? foreach ($buildings as $building) : ?>
-<? if (!$building['level']) $building['active'] = 1; ?>
-<div class="planet_overview <?= !$building['active'] ? 'deactivated' : '' ?>" onClick="build('<?= $planet['planet_id'] ?>', '<?= $building['building_id'] ?>')">
+	<? if (!$building['level']) $building['active'] = 1; ?>
+	<? if ($building['defense'] > 0 && $cat != 'defense') : ?>
+		<h1>Verteidigungsanlagen</h1>
+	<? $cat = 'defense'; endif; ?>
+<div class="planet_overview building<?= $in_progress[$building['building_id']] ? ' inprogress' : '' ?><?= !$building['active'] ? ' deactivated' : '' ?>" onClick="build('<?= $planet['planet_id'] ?>', '<?= $building['building_id'] ?>')">
 	<div style="float: left;">
 		<b><?= $building['name'] ?></b><br>
 		<!--<?= $building['description'] ?>-->

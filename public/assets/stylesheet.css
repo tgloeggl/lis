@@ -166,10 +166,14 @@ div.planet_overview {
 	border: 1px solid #DDDDFF;
 	padding: 10px;
 	float: left;
-	width: 340pt;
+	width: 400pt;
 	margin-right: 10px;
 	-moz-border-radius: 10px;
 	margin-bottom: 10px;
+}
+
+div.building {
+	width: 340pt;
 }
 
 div.planet_overview:hover {
@@ -179,6 +183,10 @@ div.planet_overview:hover {
 
 .deactivated {
 	background-color: #440000;
+}
+
+.inprogress {
+	background-color: #002200;
 }
 
 h1 {
@@ -203,4 +211,36 @@ div.building_resources table {
 div.building_resources table td {
 	text-align: center;
 	border-bottom: 1px solid gray;
+}
+
+span.red {
+	color: #FF0000;
+}
+
+span.green {
+	color: #00FF00;
+}
+
+div.filled {
+	background-color: #440000;
+	float: left;
+	height: 12px;
+}
+
+div.left {
+	background-color: #004400;
+	float: left;
+	height: 12px;
+}
+
+div.percentage {
+	clear: both;
+	position: relative;
+}
+
+div.infotext {
+	position: absolute;
+	top: -2px;
+	left: 0px;
+	font-size: 12px;
 }

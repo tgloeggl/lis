@@ -18,7 +18,7 @@ class Functions {
 		return $ret;
 	}
 
-	static function formatNumber($number) {
+	static function formatNumber($number, $color = false) {
 		if ($number < 0) $minus = true;
 		$number = abs($number);
 
@@ -27,8 +27,19 @@ class Functions {
 			$number = substr($number, 0, strlen($number) - 3);
 		}
 
-		if ($minus)return '-'. $number . $new_number;
-		return $number . $new_number;
+		
+		$number .= $new_number;
+
+		if ($color) {
+			if ($minus) {
+				return '<span class="red">- '. $number .'</span>';
+			} else {
+				return '<span class="green">+ '. $number .'</span>';
+			}
+		} else {
+			if ($minus) return '-'. $number;
+			return $number;
+		}
 	}
 	
 	static function insertEvent($type, $range_id, $sec_range_id, $finish) {

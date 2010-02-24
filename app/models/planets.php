@@ -7,7 +7,25 @@
 
 class Planets {
 	static function getList($user_id) {
-		return DBManager::get()->query("SELECT * FROM lis_planets
+		return DBManager::get()->query("SELECT *,
+
+				(SELECT SUM(b.mod_carboxin * pb.level) FROM lis_planets_buildings pb
+				 LEFT JOIN lis_buildings b USING (building_id)
+				 WHERE planet_id = lp.planet_id AND pb.active = 1) as pcarboxin,
+
+				(SELECT SUM(b.mod_detrogen * pb.level) FROM lis_planets_buildings pb
+				 LEFT JOIN lis_buildings b USING (building_id)
+				 WHERE planet_id = lp.planet_id AND pb.active = 1) as pdetrogen,
+
+				(SELECT SUM(b.mod_radium * pb.level) FROM lis_planets_buildings pb
+				 LEFT JOIN lis_buildings b USING (building_id)
+				 WHERE planet_id = lp.planet_id AND pb.active = 1) as pradium,
+
+				(SELECT SUM(b.mod_credits * pb.level) FROM lis_planets_buildings pb
+				 LEFT JOIN lis_buildings b USING (building_id)
+				 WHERE planet_id = lp.planet_id AND pb.active = 1) as pcredits
+
+			FROM lis_planets lp
 			WHERE owner_id = '$user_id'")->fetchAll(PDO::FETCH_ASSOC);
 	}
 

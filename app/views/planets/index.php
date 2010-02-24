@@ -1,6 +1,6 @@
 <? foreach ($planets as $planet) : ?>
 <? $storage = Planets::getStorage($planet['planet_id']) ?>
-<div class="planet_overview" style="background-image: url('<?= Assets::imgurl('background_transparent') ?>')" onClick="loadPage('planets', 'details/<?= $planet['planet_id'] ?>', '')">
+<div class="planet_overview" style="background-image: url('<?= Assets::imgurl('background_transparent') ?>')" onClick="loadPage('planets', '<?= ($return) ? '' : 'details/'. $planet['planet_id'] ?>', '')">
 	<div style="float:left; padding-right: 10px;">
 		<?= Assets::img('planets/'. Planets::getClass($planet['temp'], $planet['type'])) ?><br>
 		<? if (Planets::is_blocked($planet['planet_id'])) : ?>
@@ -19,27 +19,27 @@
 		<table cellspacing="0" cellpadding="0">
 			<tr>
 				<td>Energie</td>
-				<td colspan="2" style="padding-left: 10px;"><?= Functions::formatNumber(Planets::getEnergy($planet['planet_id'])) ?> MWh</td>
+				<td colspan="3" style="padding-left: 10px;"><?= Functions::formatNumber(Planets::getEnergy($planet['planet_id'])) ?> MWh</td>
 			</tr>
 			<tr>
 				<td>Carboxin</td>
-				<td style="padding: 0px 10px 0px 10px;"><?= Functions::formatNumber($planet['carboxin']) ?> t</td>
-				<td>/ <?= Functions::formatNumber($storage['carboxin']) ?> t</td>
+				<td colspan="2" style="padding: 0px 10px 0px 10px"><?= $this->render_partial('_percentage.php', array('cur' => $planet['carboxin'], 'max' => $storage['carboxin'], 'unit' => 't')) ?></td>
+				<td><?= Functions::formatNumber($planet['pcarboxin'], true) ?></td>
 			</tr>
 			<tr>
 				<td>Detrogen</td>
-				<td style="padding: 0px 10px 0px 10px;"><?= Functions::formatNumber($planet['detrogen']) ?> m³</td>
-				<td>/ <?= Functions::formatNumber($storage['detrogen']) ?> m³</td>
+				<td colspan="2" style="padding: 0px 10px 0px 10px"><?= $this->render_partial('_percentage.php', array('cur' => $planet['detrogen'], 'max' => $storage['detrogen'], 'unit' => 'm³')) ?></td>
+				<td><?= Functions::formatNumber($planet['pdetrogen'], true) ?></td>
 			</tr>
 			<tr>
 				<td>Radium</td>
-				<td style="padding: 0px 10px 0px 10px;"><?= Functions::formatNumber($planet['radium']) ?> kg</td>
-				<td>/ <?= Functions::formatNumber($storage['radium']) ?>  kg</td>
+				<td colspan="2" style="padding: 0px 10px 0px 10px"><?= $this->render_partial('_percentage.php', array('cur' => $planet['radium'], 'max' => $storage['radium'], 'unit' => 'kg')) ?></td>
+				<td><?= Functions::formatNumber($planet['pradium'], true) ?></td>
 			</tr>
 			<tr>
 				<td>Credits</td>
-				<td style="padding: 0px 10px 0px 10px;"><?= Functions::formatNumber($planet['credits']) ?> cr.</td>
-				<td>/ <?= Functions::formatNumber($storage['credits']) ?> cr.</td>
+				<td colspan="2" style="padding: 0px 10px 0px 10px"><?= $this->render_partial('_percentage.php', array('cur' => $planet['credits'], 'max' => $storage['credits'], 'unit' => 'cr.')) ?></td>
+				<td><?= Functions::formatNumber($planet['pcredits'], true) ?></td>
 			</tr>
 		</table>
 	</div>
