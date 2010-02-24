@@ -8,6 +8,13 @@
 // header
 header('Content-Type: text/html; charset=iso-8859-1');
 
+if (!file_exists('.htaccess')) {
+	$fd = fopen('.htaccess', 'w');
+	fputs ($fd, 'php_value auto_prepend_file "'. dirname(dirname(__FILE__)) . 
+		DIRECTORY_SEPARATOR . 'config'. DIRECTORY_SEPARATOR .'config.php"');
+	fclose($fd);
+}
+
 if (Login::ok()) {
 	DBManager::get()->query("UPDATE lis_user SET lifesign = UNIX_TIMESTAMP(NOW())
 		WHERE username = '". Login::getUsername() ."'");

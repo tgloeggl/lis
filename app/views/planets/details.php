@@ -1,13 +1,24 @@
 <?= $this->render_partial('planets/index.php', array('planets' => array($planet), 'return' => true)) ?>
 <?= $this->render_partial('_messages.php'); ?>
 <h1>Gebäude</h1>
-
 <? foreach ($buildings as $building) : ?>
 	<? if (!$building['level']) $building['active'] = 1; ?>
 	<? if ($building['defense'] > 0 && $cat != 'defense') : ?>
 		<h1>Verteidigungsanlagen</h1>
 	<? $cat = 'defense'; endif; ?>
-<div class="planet_overview building<?= $in_progress[$building['building_id']] ? ' inprogress' : '' ?><?= !$building['active'] ? ' deactivated' : '' ?>" onClick="build('<?= $planet['planet_id'] ?>', '<?= $building['building_id'] ?>')">
+	<? 
+	$can_build = true;
+	foreach (Config::get('resources') as $res) : 
+		if ($res != 'energy') {
+			if ($planet[$res] < $building[$res]) $can_build = false;
+		}
+	endforeach; 
+	$class = '';
+	if ($in_progress[$building['building_id']]) $class = 'inprogress';
+	else if (!$building['active']) $class = 'deactivated';
+	else if (!$can_build) $class = 'locked';
+	?>
+<div class="planet_overview building <?= $class ?>" onClick="build('<?= $planet['planet_id'] ?>', '<?= $building['building_id'] ?>')">
 	<div style="float: left;">
 		<b><?= $building['name'] ?></b><br>
 		<!--<?= $building['description'] ?>-->

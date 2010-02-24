@@ -15,6 +15,7 @@ class DefaultController extends LIS_Controller {
 		} else {
 			$menu[] = array( 'name' => 'Planeten (0.1)',   'page' => 'planets');
 			$menu[] = array( 'name' => 'Flotte (0.1)',     'page' => 'fleet');
+			$menu[] = array( 'name' => 'Schiffsdesigner',  'page' => 'design');
 			$menu[] = array( 'name' => 'Offiziere (0.3)',  'page' => 'officers');
 			$menu[] = array( 'name' => 'Karte (0.1)',      'page' => 'map');
 			$menu[] = array( 'name' => 'Forschung (0.3)',  'page' => 'research');

@@ -23,11 +23,12 @@
 	<ul>
 		<li class="pending">Gebäude deaktivieren</li>
 		<li class="pending">Planetenabhängige Erträge</li>
+		<li class="pending">Schiffe bauen</li>
 	</ul>
 	<li class="pending">Flottenübersicht</li>
 	<ul>
-		<li class="pending">Schiffe bauen</li>
 		<li class="pending">Schiffe designen</li>
+		<li class="pending">Flotten erstellen/bearbeiten</li>
 	</ul>
 	<li class="pending">Kämpfe</li>
 	<li class="pending">Forschung</li>

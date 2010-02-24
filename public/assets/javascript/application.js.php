@@ -1,4 +1,4 @@
-var dispatch_path = 'http://rona.virtuos.uos.de/lis/index.php';
+var dispatch_path = '<?= Config::get('web_path') ?>/index.php';
 
 function loadPage(controller, action, params) {
 	new Ajax.Updater('main', dispatch_path + '/' + controller + '/' + action + '?' + params);
@@ -14,6 +14,11 @@ function login() {
 
 function build(planet_id, building_id) {
 	new Ajax.Updater('main', dispatch_path + '/planets/build/' + planet_id + '/' + building_id);
+}
+
+function checkLoginEnter(e) {
+	var keyID = (window.event) ? event.keyCode : e.keyCode;
+	if (keyID == 13) { login(); }
 }
 
 new Ajax.PeriodicalUpdater('stats', dispatch_path + '/default/stats',

@@ -15,7 +15,7 @@
 		<script src="<?= Config::get('web_path') ?>/assets/javascript/lib/prototype.js" type="text/javascript"></script>
 		<script src="<?= Config::get('web_path') ?>/assets/javascript/src/scriptaculous.js" type="text/javascript"></script>
 		<script src="<?= Config::get('web_path') ?>/assets/javascript/md5.js" type="text/javascript"></script>
-		<script src="<?= Config::get('web_path') ?>/assets/javascript/application.js" type="text/javascript"></script>
+		<script src="<?= Config::get('web_path') ?>/assets/javascript/application.js.php" type="text/javascript"></script>
 	</head>
 
 	<body>

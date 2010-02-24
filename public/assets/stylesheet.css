@@ -189,6 +189,14 @@ div.planet_overview:hover {
 	background-color: #002200;
 }
 
+.locked {
+	color: #666666;
+}
+
+.locked table {
+	color: #666666;
+}
+
 h1 {
 	clear: both;
 	border-bottom: 1px solid white;

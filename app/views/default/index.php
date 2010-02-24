@@ -14,13 +14,13 @@
 		<tr>
 			<td>Name des Herrschers</td>
 			<td>
-				<input id="username" type="text" name="username" value="<?= $username ?>">
+				<input id="username" type="text" name="username" value="<?= $username ?>" onKeyPress="checkLoginEnter(event)">
 			</td>
 		</tr>
 		<tr>
 			<td>Persönlicher Identifikations-Term (PIT):</td>
 			<td>
-				<input id="password" type="password" name="username">
+				<input id="password" type="password" name="username" onKeyPress="checkLoginEnter(event)">
 			</td>
 		</tr>
 		<tr>
