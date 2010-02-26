@@ -18,6 +18,6 @@
 		<script src="<?= Config::get('web_path') ?>/assets/javascript/application.js.php" type="text/javascript"></script>
 	</head>
 
-	<body>
+	<body id="body">
 
 <!-- end html_head -->

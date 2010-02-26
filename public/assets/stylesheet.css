@@ -101,6 +101,13 @@ div.close_message {
 	cursor: pointer;
 }
 
+div.icon {
+	position: absolute;
+	right: 5px;
+	top: 1px;
+	cursor: pointer;
+}
+
 div.close_message:hover {
 	background-color: #AAAAAA;
 }
@@ -108,8 +115,8 @@ div.close_message:hover {
 /* * * * * * * * * * * * * * * * * *
  *   M I S C E L L A N E O U S   * *
  * * * * * * * * * * * * * * * * * */
-a img {
-	border: none;
+img {
+	border-style: none;
 }
 
 li.ok {
@@ -151,12 +158,21 @@ button, input {
 	border: 1px solid #DDDDFF;
 	background-color: #666699;
 	color: white;
+	-moz-border-radius: 5px;
 }
 
 button, input[type=submit]{
 	font-weight: bold;
 }
 
+button:hover, input[type=submit]:hover {
+	background-color: #333366;
+	cursor: pointer;
+}
+
+input:hover {
+	background-color: #333366;
+}
 
 /* * * * * * * * * * * * * * * * * *
  * * * *   P L A N E T S   * * * * *
@@ -251,4 +267,55 @@ div.infotext {
 	top: -2px;
 	left: 0px;
 	font-size: 12px;
+}
+
+
+table.default {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.default tr th {
+	text-align: left;
+}
+
+table.default tr td.odd {
+	background-image: url('images/portal/background_transparent.png');
+}
+
+/* * * * * * * * * * * * * * * * * *
+ * *   S H I P   D E S I G N E R * *
+ * * * * * * * * * * * * * * * * * */
+
+span.dmg {
+	display: block;
+	float: left;
+	width: 30px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	border-right: 1px solid black;
+	font-size: 10px;
+}
+
+#debug {
+	position: absolute;
+	bottom: 0px;
+	width: 600px;
+	height: 100px;
+	background-color: #FFFFAA;
+	border: 1px solid black;
+	color:black; 
+	overflow: scroll;
+	display: none;
+}
+
+div.shipdesign {
+	border: 1px solid #DDDDFF;
+	padding: 10px;
+	float: left;
+	width: 400pt;
+	margin-right: 10px;
+	-moz-border-radius: 10px;
+	margin-bottom: 10px;
 }

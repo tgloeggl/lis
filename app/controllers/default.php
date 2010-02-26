@@ -13,7 +13,7 @@ class DefaultController extends LIS_Controller {
 		if (!Login::ok()) {
 			$this->login_necessary = true;
 		} else {
-			$menu[] = array( 'name' => 'Planeten (0.1)',   'page' => 'planets');
+			$menu[] = array( 'name' => 'Planeten',         'page' => 'planets');
 			$menu[] = array( 'name' => 'Flotte (0.1)',     'page' => 'fleet');
 			$menu[] = array( 'name' => 'Schiffsdesigner',  'page' => 'design');
 			$menu[] = array( 'name' => 'Offiziere (0.3)',  'page' => 'officers');

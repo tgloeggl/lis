@@ -1,10 +1,14 @@
 <?= $this->render_partial('planets/index.php', array('planets' => array($planet), 'return' => true)) ?>
 <?= $this->render_partial('_messages.php'); ?>
-<h1>Gebäude</h1>
+
+<h1>Gebäude (<a href="javascript:switchIt('buildings')">hide / show</a>)</h1>
+<div id="buildings">
 <? foreach ($buildings as $building) : ?>
 	<? if (!$building['level']) $building['active'] = 1; ?>
 	<? if ($building['defense'] > 0 && $cat != 'defense') : ?>
-		<h1>Verteidigungsanlagen</h1>
+		</div>
+		<h1>Bewaffnete Gebäude (<a href="javascript:switchIt('defense_buildings')">hide / show</a>)</h1>
+		<div id="defense_buildings">
 	<? $cat = 'defense'; endif; ?>
 	<? 
 	$can_build = true;
@@ -76,3 +80,4 @@
 	</div>
 </div>
 <? endforeach; ?>
+</div>

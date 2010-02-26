@@ -1,5 +1,5 @@
 <? if (is_object($flash['messages'])) : ?>
-<div id="messages" class="messages">
+<div id="message_area" class="messages">
 	<?  foreach ($flash['messages']->getMessages() as $msg) : ?>
 	<div class="<?= $msg['type'] ?>" style="position: relative">
 		<?= $msg['message'] ?>
