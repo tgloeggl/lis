@@ -52,7 +52,7 @@
 	</div>
 
 	<div class="icon">
-		<a href="javascript:loadPage('design', 'delete', '/<?= $ship['shipdesign_id'] ?>')">
+		<a href="javascript:Message.question('Sind sie sicher, dass sie diesen Schiffstyp löschen möchten?', 'design', 'delete', '/<?= $ship['shipdesign_id'] ?>')">
 			<?= Assets::img('delete'); ?>
 		</a>
 	</div>

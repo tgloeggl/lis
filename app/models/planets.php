@@ -29,6 +29,12 @@ class Planets {
 			WHERE owner_id = '$user_id'")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	static function getShortList($user_id) {
+		return DBManager::get()->query("SELECT * FROM lis_planets
+			WHERE 1
+			ORDER BY size DESC, type DESC")->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	static function getClass($temp, $type) {
 		$class = array (
 			'poor'   => array('sun' => 'S', 'torrid' => 'Y', 'hot' => 'T', 'normal' => 'T', 'cold' => 'T', 'freezing' => 'Y', 'zero' => 'Y'),

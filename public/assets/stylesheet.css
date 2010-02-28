@@ -84,6 +84,23 @@ div.success {
 	width: 100%;
 }
 
+div.question {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-left: -250px;
+	width: 500px;
+
+	background-image:url('images/portal/background_transparent.png');
+	border: 1px solid #AAAAFF;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+
+	padding: 10px;
+	-moz-border-radius: 10px;
+}
+
 div.messages {
 	position: fixed;
 	bottom: 5px;

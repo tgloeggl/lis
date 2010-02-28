@@ -46,8 +46,16 @@ var Message = {
 		$('message_area').innerHTML += '<div class="error" style="position: relative">' + text
 			+ '<div class="close_message" onClick="this.parentNode.fade()">&nbsp;X&nbsp;</div>'
 			+	'</div>';
+	},
+
+	question: function(text, controller, action, params) {
+		$('body').innerHTML += '<div id="question" class="question">' + text
+			+ '<br><br><button onClick="loadPage(\''+ controller +'\', \''+  action +'\', \''+ params +'\');$(\'question\').remove()">Ja</button>'
+			+ '&nbsp; &nbsp; &nbsp; <button onClick="$(\'question\').remove()">Abbrechen</button>'
+			+ '</div>';
 	}
 }
+
 var Shipdesign = {
 	sizes     : new Array(),
 	drives    : new Array(),
@@ -86,6 +94,7 @@ var Shipdesign = {
 
 		for(var i = 0; i  < mod.length; i++){
 			id = mod[i].id;
+			if (mod[i].value < 0) mod[i].value = 0;
 			armor    += Shipdesign.modules[id]['armor']    * mod[i].value;
 			weight   += Shipdesign.modules[id]['weight']   * mod[i].value;
 			carboxin += Shipdesign.modules[id]['carboxin'] * mod[i].value;
