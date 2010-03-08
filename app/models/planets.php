@@ -31,7 +31,7 @@ class Planets {
 
 	static function getShortList($user_id) {
 		return DBManager::get()->query("SELECT * FROM lis_planets
-			WHERE 1
+			WHERE owner_id = $user_id
 			ORDER BY size DESC, type DESC")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
