@@ -33,9 +33,89 @@ new Ajax.PeriodicalUpdater('stats', dispatch_path + '/default/stats', { frequenc
 new Ajax.PeriodicalUpdater('messages', dispatch_path + '/messages/stats', { frequency: 10 });
 
 function debug(text) {
-	$('debug').innerHTML += '<br>' + text;
+	if ($('debug')) {
+		$('debug').innerHTML += '<br>' + text;
+	}
 }
 
+
+var Tooltip = {
+	x: 0,
+	y: 0,
+
+	show: function(text) {
+		$('tooltip').style.left = Tooltip.x + 10;
+		$('tooltip').style.top  = Tooltip.y + 10;
+		$('tooltip').innerHTML = text;
+		$('tooltip').show();
+		$('tooltip').style.display = 'block';
+	},
+
+	hide: function() {
+		$('tooltip').innerHTML = '';
+		$('tooltip').hide();
+	},
+
+	update: function(e) {
+		Tooltip.x = Event.pointerX(e);
+		Tooltip.y = Event.pointerY(e);
+
+		if ($('tooltip')) {
+			$('tooltip').style.left = Tooltip.x + 10;
+			$('tooltip').style.top  = Tooltip.y + 10;
+		}
+	}
+}
+
+var Map = {
+	x: 0,
+	y: 0,
+
+	move: function(newx, newy) {
+
+		new Ajax.Request(dispatch_path + '/map/mapdata/' + newx + '/' + newy, {
+			onSuccess: function(transport) {
+				var data = transport.responseText.split('|');
+
+				$('pos').innerHTML = newx +' / '+ newy;
+
+				var x=0; var y=0;
+				for (var i = 0; i < data.length; i++) {
+					if (x == 14) { x = 0; y++}
+					$(x + '_' + y).innerHTML = data[i];
+					x++;
+				}
+
+			}
+		});
+	},
+
+	startMove: function(e) {
+		Map.x = Tooltip.x;
+		Map.y = Tooltip.y;
+	},
+
+	stopMove: function(e) {
+		var move_x = Math.floor((Tooltip.x - Map.x) / 25);
+		var move_y = Math.floor((Tooltip.y - Map.y) / 25);
+
+		if (move_x < 0) move_x = -1;
+		else if (move_x > 0) move_x = 1;
+
+		if (move_y < 0) move_y = -1;
+		else if (move_y > 0) move_y = 1;
+
+		if (move_x != 0 || move_y != 0) {
+			Map.move(parseInt($('x').innerHTML) + move_x, parseInt($('y').innerHTML) + move_y);
+		}
+
+		$('x').innerHTML = parseInt($('x').innerHTML) + move_x;
+		$('y').innerHTML = parseInt($('y').innerHTML) + move_y;
+
+		Map.x = 0;
+		Map.y = 0;
+	}
+}
 
 var Message = {
 	error: function(text) {
@@ -202,3 +282,5 @@ var Shipdesign = {
 		Shipdesign.init_done = 1;
 	}
 }
+
+document.onmousemove = Tooltip.update;

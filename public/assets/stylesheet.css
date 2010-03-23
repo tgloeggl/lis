@@ -336,3 +336,28 @@ div.shipdesign {
 	-moz-border-radius: 10px;
 	margin-bottom: 10px;
 }
+
+
+/* * * * * * * * * * * * * * * * * *
+ * * * * * *    M A P    * * * * * *
+ * * * * * * * * * * * * * * * * * */
+
+table.map {
+	background-image: url('images/startile.gif');
+}
+
+table.map tr td {
+	width: 25px;
+	height: 25px;
+}
+
+#tooltip {
+	position: absolute;
+	display: none;
+	background-color: #000033;
+	padding: 3px;
+	border: 1px solid #333399;
+	top: 0px;
+	left: 0px;
+	-moz-border-radius: 10px;
+}
